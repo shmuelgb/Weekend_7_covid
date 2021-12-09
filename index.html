@@ -8,13 +8,30 @@
       rel="stylesheet"
       href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
     />
-    <script
+    <!-- <script
       src="https://kit.fontawesome.com/e52634a1a8.js"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <link rel="stylesheet" href="/styles/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/script.js" defer></script>
-    <title>covid.19</title>
+    <title>Covid19</title>
   </head>
-  <body></body>
+  <body>
+    <div class="chart-container"></div>
+    <div class="stats-container">
+      <button>Confirmed</button>
+      <button>Deaths</button>
+      <button>Recovered</button>
+      <button>Critical</button>
+    </div>
+    <div class="continents-container">
+      <button class="btn" data-continent="asia">Asia</button>
+      <button class="btn" data-continent="europe">Europe</button>
+      <button class="btn" data-continent="africa">Africa</button>
+      <button class="btn" data-continent="americas">Americas</button>
+    </div>
+    <div class="countries-container"></div>
+  </body>
 </html>
