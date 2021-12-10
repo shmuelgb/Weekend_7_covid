@@ -1,0 +1,10 @@
+countries 
+continent
+
+getData{
+    con{
+        con exist = return
+        con !exist = fetch con
+    }
+    
+}
