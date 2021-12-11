@@ -218,7 +218,7 @@ function createCountryChart(country) {
 
 //check screen size, if not enough, display a message
 function checkScreenSize() {
-  if (window.screen.availWidth > 700) {
+  if (window.screen.availWidth > 1000) {
     return true;
   } else {
     const screenSizeMsgEl = document.createElement("p");
