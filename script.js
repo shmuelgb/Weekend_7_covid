@@ -36,6 +36,7 @@ class CovidData {
 //event listeners
 continentsEL.forEach((continent) => {
   continent.addEventListener("click", (e) => {
+    if (!checkScreenSize()) return;
     getData(e.target.dataset.continent);
     createChart(e.target.dataset.continent);
     state.continent = e.target.dataset.continent;
@@ -43,6 +44,7 @@ continentsEL.forEach((continent) => {
 });
 
 dataTypeEL.forEach((dataType) => {
+  if (!checkScreenSize()) return;
   dataType.addEventListener("click", (e) => {
     state.dataType = e.target.dataset.type;
     createChart(state.continent);
@@ -135,6 +137,7 @@ function displayContent(continent) {
   createChart(continent);
 }
 
+//create button for each country
 function displayCountries(continent) {
   countriesMap[continent].forEach((country) => {
     const countryEl = document.createElement("button");
@@ -148,8 +151,8 @@ function displayCountries(continent) {
   });
 }
 
+//create a line chart
 function createChart(continent) {
-  if (!checkScreenSize()) return;
   if (countriesMap[continent]) {
     const chartEl = document.createElement("canvas");
     chartContainerEl.innerHTML = "";
@@ -182,8 +185,8 @@ function createChart(continent) {
   }
 }
 
+//create a doughnut chart for a country
 function createCountryChart(country) {
-  if (!checkScreenSize()) return;
   const chartEl = document.createElement("canvas");
   chartContainerEl.innerHTML = "";
   chartContainerEl.appendChild(chartEl);
@@ -215,6 +218,7 @@ function createCountryChart(country) {
   });
 }
 
+//check screen size, if not enough, display a message
 function checkScreenSize() {
   if (window.screen.availWidth > 700) {
     return true;
@@ -228,6 +232,7 @@ function checkScreenSize() {
   }
 }
 
+//extract data from storage and return it
 function getCovidDataPerContinent(continent, type) {
   const covidData = countriesMap[continent].map((country) => {
     return covidPerCountryMap[country.name][type];
