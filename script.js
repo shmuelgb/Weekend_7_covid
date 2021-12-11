@@ -149,6 +149,7 @@ function displayCountries(continent) {
 }
 
 function createChart(continent) {
+  if (!checkScreenSize()) return;
   if (countriesMap[continent]) {
     const chartEl = document.createElement("canvas");
     chartContainerEl.innerHTML = "";
@@ -182,12 +183,11 @@ function createChart(continent) {
 }
 
 function createCountryChart(country) {
+  if (!checkScreenSize()) return;
   const chartEl = document.createElement("canvas");
   chartContainerEl.innerHTML = "";
   chartContainerEl.appendChild(chartEl);
   chartEl.setAttribute("class", "");
-  chartEl.setAttribute("height", "300");
-  chartEl.setAttribute("width", "900");
   const chart = new Chart(chartEl, {
     type: "doughnut",
     data: {
@@ -213,6 +213,19 @@ function createCountryChart(country) {
       },
     },
   });
+}
+
+function checkScreenSize() {
+  if (window.screen.availWidth > 700) {
+    return true;
+  } else {
+    const screenSizeMsgEl = document.createElement("p");
+    screenSizeMsgEl.innerText =
+      "Sorry, screen size too small. Try tiling your device to landscape mode";
+    screenSizeMsgEl.classList.add("screen-size-msg");
+    chartContainerEl.appendChild(screenSizeMsgEl);
+    return false;
+  }
 }
 
 function getCovidDataPerContinent(continent, type) {
