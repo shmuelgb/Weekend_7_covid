@@ -4,6 +4,8 @@
 
 This site shows the latest covid-19 statistics, using vanilla js only.
 
+**Tip: Unfortunately the graphs do not display well on small screens. Try viewing this site on full-size screens**
+
 ## Visit Live Demo:
 
 https://priceless-franklin-c7a516.netlify.app/
