@@ -1,4 +1,4 @@
-# Covid Statistics
+# Covid-19 Statistics
 
 ## Description:
 
